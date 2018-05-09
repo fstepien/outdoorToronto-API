@@ -11,9 +11,9 @@ const eventRoutes = require("./api/routes/events");
 mongoose.connect(
   "mongodb+srv://filip:" +
     process.env.MONGO_ATLAS_PW +
-    ">@otoapi-7lw9k.mongodb.net/test",
-  { useMongoClient: true }
+    "@otoapi-7lw9k.mongodb.net/test"
 );
+mongoose.Promise = global.Promise;
 
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
