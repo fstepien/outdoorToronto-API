@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const locationRoutes = require("./api/routes/locations");
-const eventRoutes = require("./api/routes/events");
+const attractionRoutes = require("./api/routes/attractions");
 
 mongoose.connect(
   "mongodb+srv://filip:" +
@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 
 // this forwars all url/locations to locations.js to handle requests
 app.use("/locations", locationRoutes);
-app.use("/events", eventRoutes);
+app.use("/attractions", attractionRoutes);
 // handles every requrest that reaches this line
 app.use((req, res, next) => {
   const error = new Error("Not Found");
